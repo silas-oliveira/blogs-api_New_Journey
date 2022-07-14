@@ -1,5 +1,9 @@
 'use strict';
 module.exports = {
+  /**
+ * @param {import('sequelize').Sequelize } sequelize 
+ * @param {import('sequelize').DataTypes} DataTypes 
+ */
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('PostCategories', {
       postId: {
