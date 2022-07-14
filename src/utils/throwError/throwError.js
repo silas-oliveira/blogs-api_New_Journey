@@ -6,7 +6,7 @@ const throwError = (name, defaultMessage = '') => (message = defaultMessage) => 
 
 const UnauthorizedError = throwError(
   'UnauthorizedError', 
-  'Usuário não existe ou senha inválida/400',
+  'Invalid fields/400',
 );
 const tokeIsRequired = throwError(
   'tokeIsRequired', 
