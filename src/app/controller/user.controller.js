@@ -1,20 +1,14 @@
 const userSchema = require('../../utils/schemas/user.schema');
-const authService = require('../service/auth.service');
+const userService = require('../service/user.service');
 
-const authController = {
-  async login(body) {
-    const { email, password } = body;
-    const { error } = userSchema.validate({ email, password });
+const userController = {
+  async add(body) {
+    const { displayName, email, password } = body;
+    const { error } = userSchema.validate({ displayName, email, password });
     if (error) throw error;
-    const token = await authService.validateCredentials({ email, password });
-    return token;
-  },
-
-  async validateToken(headers) {
-    const { authorization } = headers;
-    const user = authService.validateToken(authorization);
-    return user;
+    const result = await userService.add(body);
+    return result;
   },
 };
 
-module.exports = authController;
+module.exports = userController;

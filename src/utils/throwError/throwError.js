@@ -11,9 +11,15 @@ const UnauthorizedError = throwError(
 const tokeIsRequired = throwError(
   'tokeIsRequired', 
   'Token é obrigatório/400',
-  );
+);
+  
+const userAlreadyExist = throwError(
+  'userAlreadyExist',
+  'User already registered/409',
+);
 
 module.exports = {
   UnauthorizedError,
   tokeIsRequired,
+  userAlreadyExist,
 };
