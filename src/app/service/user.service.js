@@ -13,6 +13,15 @@ const userService = {
     const { password: _, ...userWithoutPassword } = dataValues;
     return createToken(userWithoutPassword);
   },
+
+  async list() {
+    const result = await User.findAll({
+      attributes: {
+        exclude: ['password'],
+      },
+    });
+    return result;
+  },
 };
 
 module.exports = userService;

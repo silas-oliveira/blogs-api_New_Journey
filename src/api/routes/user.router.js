@@ -8,4 +8,9 @@ userRouter.post('/', async (req, res, _next) => {
   return res.status(201).json({ token: result });
 });
 
+userRouter.get('/', async (req, res, _next) => {
+  const result = await userController.list(req.headers);
+  return res.status(200).json(result);
+});
+
 module.exports = userRouter;
