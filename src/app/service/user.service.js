@@ -1,5 +1,5 @@
 const { User } = require('../../database/models');
-const { userAlreadyExist } = require('../../utils/throwError/throwError');
+const { userAlreadyExist, userDoesNotExist } = require('../../utils/throwError/throwError');
 const { createToken } = require('./jwt.service');
 
 const userService = {
@@ -20,6 +20,16 @@ const userService = {
         exclude: ['password'],
       },
     });
+    return result;
+  },
+
+  async get(id) {
+    const result = await User.findByPk(id, {
+      attributes: {
+        exclude: ['password'],
+      },
+    });
+    if (!result) userDoesNotExist();
     return result;
   },
 };

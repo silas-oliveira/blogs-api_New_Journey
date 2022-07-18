@@ -16,6 +16,13 @@ const userController = {
     const result = await userService.list();
     return result;
   },
+
+  async get(params, headers) {
+    await validateToken(headers);
+    const { id } = params;
+    const result = await userService.get(id);
+    return result;
+  },
 };
 
 module.exports = userController;

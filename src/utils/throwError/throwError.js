@@ -23,9 +23,15 @@ const expiredOrInvalidToken = throwError(
   'Expired or invalid token/401',
 );
 
+const userDoesNotExist = throwError(
+  'userDoesNotExist',
+  'User does not exist/404',
+);
+
 module.exports = {
   UnauthorizedError,
   tokeIsRequired,
   userAlreadyExist,
   expiredOrInvalidToken,
+  userDoesNotExist,
 };

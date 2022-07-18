@@ -13,4 +13,9 @@ userRouter.get('/', async (req, res, _next) => {
   return res.status(200).json(result);
 });
 
+userRouter.get('/:id', async (req, res, _next) => {
+  const result = await userController.get(req.params, req.headers);
+  return res.status(200).json(result);
+});
+
 module.exports = userRouter;
