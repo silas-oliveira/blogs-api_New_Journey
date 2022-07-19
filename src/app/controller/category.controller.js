@@ -11,6 +11,12 @@ const categoryController = {
     const result = categoryService.add(body);
     return result;
   },
+
+  async get(headers) {
+    await validateToken(headers);
+    const result = categoryService.get();
+    return result;
+  },
 };
 
 module.exports = categoryController;
