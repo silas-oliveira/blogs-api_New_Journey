@@ -4,9 +4,10 @@
  * @param {import('sequelize').DataTypes} DataTypes 
  */
 const createBlogPosts = (sequelize, DataTypes) => {
-  const BlogPosts = sequelize.define("BlogPosts", {
+  const BlogPost = sequelize.define("BlogPost", {
     id: {
       primaryKey: true,
+      autoIncrement: true,
       type: DataTypes.INTEGER,
     },
     title: DataTypes.STRING,
@@ -18,7 +19,12 @@ const createBlogPosts = (sequelize, DataTypes) => {
     timestamps: false,
   });
 
-  return BlogPosts;
+  BlogPost.associate = (models) => {
+    BlogPost.belongsTo(models.User,
+      { foreignKey: 'userId', as: 'blogPosts' });
+  }
+
+  return BlogPost;
 };
 
 module.exports = createBlogPosts;
