@@ -2,6 +2,8 @@
 const { BlogPost } = require('../../database/models');
 const { PostCategory } = require('../../database/models');
 const { Category } = require('../../database/models');
+const { User } = require('../../database/models');
+
 const { categoryNotFound } = require('../../utils/throwError/throwError');
 
 // const config = require('../../database/config/config');
@@ -38,9 +40,16 @@ const postService = {
     const { dataValues } = await BlogPost.findByPk(id);
     return dataValues;
   },
+
+  async get() {
+    const result = await BlogPost.findAll({
+      include: [
+        { model: User, as: 'user', attributes: { exclude: ['password'] } },
+        { model: Category, as: 'categories', through: { attributes: [] } },
+      ],
+    });
+    return result;
+  },
 };
 
 module.exports = postService;
-
-// await BlogPost.create(body);
-// return result;

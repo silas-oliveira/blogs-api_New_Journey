@@ -10,6 +10,12 @@ const postController = {
     const result = await postService.addToTables(body, payload);
     return result;
   },
+
+  async get(headers) {
+    await validateToken(headers);
+    const result = await postService.get();
+    return result;
+  },
 };
 
 module.exports = postController;

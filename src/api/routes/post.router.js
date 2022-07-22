@@ -8,4 +8,9 @@ postRouter.post('/', async (req, res, _next) => {
   return res.status(201).json(result);
 });
 
+postRouter.get('/', async (req, res, _next) => {
+  const result = await postController.get(req.headers);
+  return res.status(200).json(result);
+});
+
 module.exports = postRouter;
