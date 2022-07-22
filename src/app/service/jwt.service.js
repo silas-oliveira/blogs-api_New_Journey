@@ -5,7 +5,7 @@ const { expiredOrInvalidToken } = require('../../utils/throwError/throwError');
 const jwtService = {
   createToken(user) {
     const token = jwt.sign({ data: user }, process.env.JWT_SECRET, {
-      expiresIn: '15m',
+      expiresIn: '7h',
       algorithm: 'HS256',
     });
     return token;

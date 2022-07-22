@@ -28,10 +28,16 @@ const userDoesNotExist = throwError(
   'User does not exist/404',
 );
 
+const categoryNotFound = throwError(
+  'categoryNotFound',
+  '"categoryIds" not found/400',
+);
+
 module.exports = {
   UnauthorizedError,
   tokeIsRequired,
   userAlreadyExist,
   expiredOrInvalidToken,
   userDoesNotExist,
+  categoryNotFound,
 };
