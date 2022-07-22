@@ -33,6 +33,11 @@ const categoryNotFound = throwError(
   '"categoryIds" not found/400',
 );
 
+const postNotExist = throwError(
+  'blogPostNotExist',
+  'Post does not exist/404',
+);
+
 module.exports = {
   UnauthorizedError,
   tokeIsRequired,
@@ -40,4 +45,5 @@ module.exports = {
   expiredOrInvalidToken,
   userDoesNotExist,
   categoryNotFound,
+  postNotExist,
 };

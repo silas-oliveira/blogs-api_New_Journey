@@ -9,7 +9,12 @@ postRouter.post('/', async (req, res, _next) => {
 });
 
 postRouter.get('/', async (req, res, _next) => {
-  const result = await postController.get(req.headers);
+  const result = await postController.list(req.headers);
+  return res.status(200).json(result);
+});
+
+postRouter.get('/:id', async (req, res, _next) => {
+  const result = await postController.get(req.headers, req.params);
   return res.status(200).json(result);
 });
 

@@ -11,9 +11,16 @@ const postController = {
     return result;
   },
 
-  async get(headers) {
+  async list(headers) {
     await validateToken(headers);
-    const result = await postService.get();
+    const result = await postService.list();
+    return result;
+  },
+
+  async get(headers, params) {
+    await validateToken(headers);
+    const { id } = params;
+    const result = await postService.get(id);
     return result;
   },
 };

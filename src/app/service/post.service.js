@@ -4,7 +4,7 @@ const { PostCategory } = require('../../database/models');
 const { Category } = require('../../database/models');
 const { User } = require('../../database/models');
 
-const { categoryNotFound } = require('../../utils/throwError/throwError');
+const { categoryNotFound, postNotExist } = require('../../utils/throwError/throwError');
 
 // const config = require('../../database/config/config');
 
@@ -41,13 +41,25 @@ const postService = {
     return dataValues;
   },
 
-  async get() {
+  async list() {
     const result = await BlogPost.findAll({
       include: [
         { model: User, as: 'user', attributes: { exclude: ['password'] } },
         { model: Category, as: 'categories', through: { attributes: [] } },
       ],
     });
+    return result;
+  },
+
+  async get(id) {
+    const result = await BlogPost.findOne({
+      where: { id },
+      include: [
+        { model: User, as: 'user', attributes: { exclude: ['password'] } },
+        { model: Category, as: 'categories', through: { attributes: [] } },
+      ],
+    });
+    if (!result) postNotExist();
     return result;
   },
 };
