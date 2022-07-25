@@ -1,3 +1,4 @@
+const postToEditSchema = require('../../utils/schemas/post.edit.schema');
 const postSchema = require('../../utils/schemas/post.schema');
 const postService = require('../service/post.service');
 const { validateToken } = require('./auth.controller');
@@ -21,6 +22,15 @@ const postController = {
     await validateToken(headers);
     const { id } = params;
     const result = await postService.get(id);
+    return result;
+  },
+
+  async edit(body, headers, params) {
+    const { error } = postToEditSchema.validate(body);
+    if (error) throw error;
+    const { id } = params;
+    const payload = await validateToken(headers);
+    const result = await postService.edit(body, payload, id);
     return result;
   },
 };

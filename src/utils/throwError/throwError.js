@@ -38,6 +38,11 @@ const postNotExist = throwError(
   'Post does not exist/404',
 );
 
+const unauthorizedUser = throwError(
+  'unauthorizedUser',
+  'Unauthorized user/401',
+);
+
 module.exports = {
   UnauthorizedError,
   tokeIsRequired,
@@ -46,4 +51,5 @@ module.exports = {
   userDoesNotExist,
   categoryNotFound,
   postNotExist,
+  unauthorizedUser,
 };

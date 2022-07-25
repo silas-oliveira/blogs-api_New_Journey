@@ -4,7 +4,11 @@ const { PostCategory } = require('../../database/models');
 const { Category } = require('../../database/models');
 const { User } = require('../../database/models');
 
-const { categoryNotFound, postNotExist } = require('../../utils/throwError/throwError');
+const {
+  categoryNotFound,
+  postNotExist,
+  unauthorizedUser,
+} = require('../../utils/throwError/throwError');
 
 // const config = require('../../database/config/config');
 
@@ -61,6 +65,18 @@ const postService = {
     });
     if (!result) postNotExist();
     return result;
+  },
+
+  async edit(body, payload, idPost) {
+    const { dataValues: { id } } = payload;
+    const verifyPost = await this.get(idPost);
+    if (verifyPost.dataValues.user.dataValues.id !== id) unauthorizedUser();
+    await BlogPost.update(body, {
+      where: {
+        idPost,
+      },
+    });
+    return verifyPost;
   },
 };
 

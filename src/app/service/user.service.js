@@ -10,7 +10,7 @@ const userService = {
     const dataValues = await User.create(
       { displayName, email, password, image },
     );
-    const { password: _, ...userWithoutPassword } = dataValues;
+    const { password: _, ...userWithoutPassword } = dataValues.dataValues;
     return createToken(userWithoutPassword);
   },
 
