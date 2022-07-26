@@ -23,4 +23,9 @@ postRouter.put('/:id', async (req, res, _next) => {
   return res.status(200).json(result);
 });
 
+postRouter.delete('/:id', async (req, res, _next) => {
+  const result = await postController.delete(req.headers, req.params);
+  return res.status(204).json(result);
+});
+
 module.exports = postRouter;

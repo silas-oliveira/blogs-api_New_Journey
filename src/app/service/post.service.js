@@ -79,6 +79,19 @@ const postService = {
     const result = await this.get(idPost);
     return result;
   },
+
+  async delete(idPost, payload) {
+    const { id } = payload;
+    const { dataValues: { user: { dataValues } } } = await this.get(idPost);
+    if (dataValues.id !== id) unauthorizedUser();
+    const verifyBlogPost = await this.get(idPost);
+    if (!verifyBlogPost) postNotExist();
+    await BlogPost.destroy({
+      where: {
+        id: idPost,
+      },
+    });
+  },
 };
 
 module.exports = postService;

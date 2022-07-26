@@ -33,6 +33,13 @@ const postController = {
     const result = await postService.edit(body, payload, id);
     return result;
   },
+
+  async delete(headers, params) {
+    const { id } = params;
+    const payload = await validateToken(headers);
+    const result = await postService.delete(id, payload);
+    return result;
+  },
 };
 
 module.exports = postController;
