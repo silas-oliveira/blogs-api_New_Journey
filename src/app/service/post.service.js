@@ -68,15 +68,16 @@ const postService = {
   },
 
   async edit(body, payload, idPost) {
-    const { dataValues: { id } } = payload;
-    const verifyPost = await this.get(idPost);
-    if (verifyPost.dataValues.user.dataValues.id !== id) unauthorizedUser();
+    const { id } = payload;
+    const { dataValues: { user: { dataValues } } } = await this.get(idPost);
+    if (dataValues.id !== id) unauthorizedUser();
     await BlogPost.update(body, {
       where: {
-        idPost,
+        id: idPost,
       },
     });
-    return verifyPost;
+    const result = await this.get(idPost);
+    return result;
   },
 };
 
