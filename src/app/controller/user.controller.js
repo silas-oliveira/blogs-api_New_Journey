@@ -23,6 +23,12 @@ const userController = {
     const result = await userService.get(id);
     return result;
   },
+
+  async delete(headers) {
+    const payload = await validateToken(headers);
+    const result = await userService.delete(payload);
+    return result;
+  },
 };
 
 module.exports = userController;

@@ -32,6 +32,21 @@ const userService = {
     if (!result) userDoesNotExist();
     return result;
   },
+
+  async delete(payload) {
+    const { id } = payload;
+    const findUser = await User.findOne({
+      where: id,
+    });
+    if (!findUser) userDoesNotExist();
+    if (findUser) {
+      await User.destroy({
+        where: {
+          id,
+        },
+      });
+    }
+  },
 };
 
 module.exports = userService;

@@ -18,4 +18,9 @@ userRouter.get('/:id', async (req, res, _next) => {
   return res.status(200).json(result);
 });
 
+userRouter.delete('/me', async (req, res, _next) => {
+  const result = await userController.delete(req.headers);
+  return res.status(204).json(result);
+});
+
 module.exports = userRouter;
