@@ -1,4 +1,5 @@
 // const Sequelize = require('sequelize');
+const { Op } = require('sequelize');
 const { BlogPost } = require('../../database/models');
 const { PostCategory } = require('../../database/models');
 const { Category } = require('../../database/models');
@@ -91,6 +92,26 @@ const postService = {
         id: idPost,
       },
     });
+  },
+
+  async search(q) {
+    const result = await BlogPost.findAll({
+      where: {
+        [Op.or]: {
+          content: {
+              [Op.like]: `%${q}%`,
+            },
+          title: {
+              [Op.like]: `%${q}%`,
+            },
+        },
+      },
+      include: [
+        { model: User, as: 'user', attributes: { exclude: ['password'] } },
+        { model: Category, as: 'categories', through: { attributes: [] } },
+      ],
+    });
+    return result;
   },
 };
 

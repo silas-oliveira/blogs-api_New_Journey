@@ -40,6 +40,13 @@ const postController = {
     const result = await postService.delete(id, payload);
     return result;
   },
+
+  async search(headers, query) {
+    await validateToken(headers);
+    const { q } = query;
+    const result = await postService.search(q);
+    return result;
+  },
 };
 
 module.exports = postController;

@@ -3,6 +3,11 @@ const postController = require('../../app/controller/post.controller');
 
 const postRouter = Router();
 
+postRouter.get('/search', async (req, res, _next) => {
+  const result = await postController.search(req.headers, req.query);
+  return res.status(200).json(result);
+});
+
 postRouter.post('/', async (req, res, _next) => {
   const result = await postController.add(req.body, req.headers);
   return res.status(201).json(result);
