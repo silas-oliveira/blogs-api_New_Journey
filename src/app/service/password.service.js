@@ -8,11 +8,6 @@ const passwordService = {
     return encryptedPassword; 
   },
 
-  // checkPassword(password, passwordDb) {
-  //   const isMatch = bcrypt.compareSync(password, passwordDb);
-  //   if (!isMatch) UnauthorizedError();
-  // },
-
   checkPassword(password, passwordDb) {
     if (password !== passwordDb) UnauthorizedError();
   },
