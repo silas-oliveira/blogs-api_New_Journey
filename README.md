@@ -311,10 +311,9 @@ O corpo da requisição deverá seguir o formato abaixo:
     ```
 
 <br>
-<details>
+</details>
 
   ---
-
 ### - GET `/post/:id`
 
 - Endpoint acessível através do URL `/post/:id`;
