@@ -2,8 +2,7 @@
 
 <br />
 
-<details>
-  <summary><strong>👨‍💻 O que foi desenvolvido</strong></summary>
+ ### <strong>👨‍💻 O que foi desenvolvido</strong>
 
   Neste projeto, foi desenvolvida uma API e um banco de dados para a produção de conteúdo para um blog!
 
@@ -14,12 +13,17 @@
   2. Relacionamento entre tabelas, usando os princípios do Sequelize.
 
 <br />
-</details>
+
+ ### <strong>👀 Como verificar o código da aplicação 👀</strong>
+
+  Basta apertar o botão '.' do seu teclado, e você terá acesso completo ao código do projeto.
+
+<br />
 
 
 # Endpoints da API
 
-# - POST `/login`
+### - POST `/login`
 
 - Endpoint acessível através do URL `/login`;
 O corpo da requisição deverá seguir o formato abaixo:
@@ -61,7 +65,8 @@ O corpo da requisição deverá seguir o formato abaixo:
 <br />
 </details>
 
-# - POST `/user`
+---
+### - POST `/user`
 
 - Endpoint acessível através do URL `/user`;
 - Endpoint adiciona um novo `user` a tabela no banco de dados;
@@ -121,7 +126,8 @@ O corpo da requisição deverá seguir o formato abaixo:
 <br />
 </details>
 
-# - GET `/user`
+---
+### - GET `/user`
 
 - Endpoint acessível através do URL `/user`;
 - Endpoint traz todos os `users` do banco de dados;
@@ -149,7 +155,8 @@ O corpo da requisição deverá seguir o formato abaixo:
 <br />
 </details>
 
-# - GET `/user/:id`
+---
+### - GET `/user/:id`
 
 - Endpoint acessível através do URL `/user/:id`;
 - Endpoint traz o `user` baseado no `id` do banco de dados se ele existir;
@@ -181,7 +188,8 @@ O corpo da requisição deverá seguir o formato abaixo:
 <br />
 </details>
 
-# - POST `/categories`
+---
+### - POST `/categories`
 
 - Endpoint acessível através do URL `/categories`;
 - Endpoint adiciona uma nova categoria a sua tabela no banco de dados;
@@ -217,7 +225,8 @@ O corpo da requisição deverá seguir o formato abaixo:
 <br />
 </details>
 
-# - GET `/categories`
+---
+### - GET `/categories`
 
 - Endpoint acessível através do URL `/categories`;
 - Endpoint traz todas categorias do banco de dados;
@@ -247,7 +256,8 @@ O corpo da requisição deverá seguir o formato abaixo:
 <br />
 </details>
 
-# - POST `/post`
+---
+### - POST `/post`
 
 - Endpoint deve ser acessível através do URL `/post`;
 - Endpoint adiciona um novo blog post e vincula as categorias em suas tabelas no banco de dados;
@@ -260,15 +270,14 @@ O corpo da requisição deverá seguir o formato abaixo:
   }
   ```
 
-# - GET `/post`
-
-
+---
+### - GET `/post`
 
 - Endpoint acessível através do URL `/post`;
 - Endpoint traz todos os blogs posts, user dono dele e as categorias do banco de dados;
 
 <details>
-  <summary><strong>Os seguintes pontos serão avaliados</strong></summary>
+  <summary><strong>Os seguintes pontos estão sendo validados</strong></summary>
 
   * ☝ **[Token sendo validado]**
 
@@ -300,13 +309,19 @@ O corpo da requisição deverá seguir o formato abaixo:
       /* ... */
     ]
     ```
-# - GET `/post/:id`
+
+<br>
+<details>
+
+  ---
+
+### - GET `/post/:id`
 
 - Endpoint acessível através do URL `/post/:id`;
 - Endpoint traz o blog post baseado no `id` do banco de dados se ele existir;
 
 <details>
-  <summary><strong>Os seguintes pontos serão avaliados</strong></summary>
+  <summary><strong>Os seguintes pontos estão sendo validados</strong></summary>
 
   * ☝ **[Token sendo validado]**
 
@@ -346,7 +361,8 @@ O corpo da requisição deverá seguir o formato abaixo:
 <br />
 </details>
 
-# - PUT `/post/:id`
+---
+### - PUT `/post/:id`
 
 - Endpoint acessível através do URL `/post/:id`;
 - Endpoint altera um post do banco de dados, se ele existir;
@@ -410,7 +426,11 @@ O corpo da requisição deverá seguir o formato abaixo:
     }
     ```
 
-# - DELETE `/post/:id`
+<br />
+</details>
+
+  ---
+### - DELETE `/post/:id`
 
 - Endpoint acessível através do URL `/post/:id`;
 - Endpoint deleta um blog post baseado no `id` do banco de dados se ele existir;
@@ -438,14 +458,20 @@ O corpo da requisição deverá seguir o formato abaixo:
       "message": "Post does not exist"
     }
     ```
-# - DELETE `/user/me`
+
+<br />
+</details>
+
+  ---
+
+### - DELETE `/user/me`
 
 - Endpoint acessível através do URL `/user/me`;
 - Endpoint deleta você do banco de dados, baseado no `id` que esta dentro do seu `token`;
 - Aplicação utiliza as informalções com base no token de autenticação para realizar a deleção;
 
 <details>
-  <summary><strong>Os seguintes pontos serão avaliados</strong></summary>
+  <summary><strong>Os seguintes pontos estão sendo validados</strong></summary>
 
   * ☝ **[Token sendo validado]**
 
@@ -455,7 +481,8 @@ O corpo da requisição deverá seguir o formato abaixo:
 <br />
 </details>
 
-# - GET `/post/search?q=:searchTerm`
+---
+### - GET `/post/search?q=:searchTerm`
 
 - Endpoint acessível através do URL `/post/search`;
 - Endpoint deve ser capaz de trazer os blogs post baseados no `q` do banco de dados, se ele existir;
@@ -567,3 +594,8 @@ O corpo da requisição deverá seguir o formato abaixo:
 
       []
     ```
+
+<br />
+</details>
+
+---
