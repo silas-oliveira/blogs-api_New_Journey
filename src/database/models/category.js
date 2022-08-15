@@ -1,21 +1,21 @@
-'use strict'
-/**
- * @param {import('sequelize').Sequelize } sequelize 
- * @param {import('sequelize').DataTypes} DataTypes 
- */
-const createCategoriesModel = (sequelize, DataTypes) => {
-  const Category = sequelize.define("Category", {
-    id: {
-      primaryKey: true,
-      autoIncrement: true,
-      type: DataTypes.INTEGER,
-    },
-    name: DataTypes.STRING,
-  }, {
-    timestamps: false,
-  });
+// 'use strict'
+// /**
+//  * @param {import('sequelize').Sequelize } sequelize 
+//  * @param {import('sequelize').DataTypes} DataTypes 
+//  */
+// const createCategoriesModel = (sequelize, DataTypes) => {
+//   const Category = sequelize.define("Category", {
+//     id: {
+//       primaryKey: true,
+//       autoIncrement: true,
+//       type: DataTypes.INTEGER,
+//     },
+//     name: DataTypes.STRING,
+//   }, {
+//     timestamps: false,
+//   });
 
-  return Category;
-};
+//   return Category;
+// };
 
-module.exports = createCategoriesModel;
+// module.exports = createCategoriesModel;

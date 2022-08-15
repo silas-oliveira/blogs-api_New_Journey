@@ -2,7 +2,11 @@ require('dotenv').config();
 
 const environment = process.env.NODE_ENV || 'test';
 
-const suffix = {
+type TSuffix = {
+  [key: string]: string;
+}
+
+const suffix: TSuffix = {
   dev: '-dev',
   development: '-dev',
   test: '-test',
@@ -22,7 +26,7 @@ const options = {
   logging: process.env.DEBUG !== 'false',
 };
 
-module.exports = {
+export default {
   development: {
     ...options,
   },
