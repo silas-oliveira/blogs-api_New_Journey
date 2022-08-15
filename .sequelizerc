@@ -2,7 +2,7 @@ const path = require("path");
 const basePath = path.resolve(__dirname, "sequelize");
 
 module.exports = {
-  url: process.env.MYSQL_URI || "mysql://root:password@localhost:3306/blogs_api_db",
+  url: process.env.MYSQL_URI || "mysql://root:password@localhost:3306/blogs-api",
   "models-path": path.resolve(__dirname, "src", "db"),
   "seeders-path": path.resolve(basePath, "seeders"),
   "migrations-path": path.resolve(basePath, "migrations"),

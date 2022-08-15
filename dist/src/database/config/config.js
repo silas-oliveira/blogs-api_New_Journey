@@ -1,30 +1,14 @@
 "use strict";
-// require('dotenv').config();
-// const environment = process.env.NODE_ENV || 'test';
-// const suffix = {
-//   dev: '-dev',
-//   development: '-dev',
-//   test: '-test',
-// };
-// const options = {
-//   host: process.env.HOSTNAME || process.env.MYSQL_HOST || 'localhost',
-//   port: process.env.MYSQL_PORT || '3306',
-//   database: 
-//     // `${process.env.MYSQL_DB_NAME || 'blogs-api'}${suffix[environment] || suffix.test}`,
-//     `${process.env.MYSQL_DB_NAME || 'blogs-api'}`,
-//   username: process.env.MYSQL_USER || 'root',
-//   password: process.env.MYSQL_PASSWORD || 'password',
-//   dialect: 'mysql',
-//   dialectOptions: {
-//     timezone: 'Z',
-//   },
-//   logging: process.env.DEBUG !== 'false',
-// };
-// export default {
-//   development: {
-//     ...options,
-//   },
-//   test: {
-//     ...options,
-//   },
-// };
+Object.defineProperty(exports, "__esModule", { value: true });
+const options = {
+    host: 'localhost',
+    port: 3306,
+    database: 'blogs-api',
+    username: 'root',
+    password: 'password',
+    dialect: 'mysql',
+    dialectOptions: {
+        timezone: 'Z',
+    },
+};
+exports.default = options;
